@@ -2,6 +2,7 @@ package us.bojie.constraintlayoutdemo;
 
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.transition.TransitionManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,10 +26,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void reset(View view) {
+        TransitionManager.beginDelayedTransition(mConstraintLayout);
         mConstraintSet1.applyTo(mConstraintLayout);
     }
 
     public void change(View view) {
+        TransitionManager.beginDelayedTransition(mConstraintLayout);
         mConstraintSet2.setMargin(R.id.button1, ConstraintSet.START, 30);
         mConstraintSet2.applyTo(mConstraintLayout);
     }
